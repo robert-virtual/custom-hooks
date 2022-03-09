@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useState } from "react";
+import useStorage from "./hooks/useStorage";
 
 function App() {
+  // const [name, setName] = useState("");
+  const { hola, sethola } = useStorage("", "hola");
+  const { name, setname } = useStorage("", "name");
+  const { lastname, setlastname } = useStorage("", "lastname");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Custom hooks</h1>
+      <h2>{name}</h2>
+      <input type="text" value={name} onChange={setname} />
+      <hr />
+      <h2>{hola}</h2>
+      <input type="text" value={hola} onChange={sethola} />
+      <hr />
+      <h2>{lastname}</h2>
+      <input type="text" value={lastname} onChange={setlastname} />
     </div>
   );
 }
